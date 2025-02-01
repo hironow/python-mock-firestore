@@ -16,6 +16,14 @@ class TestDocumentReference(TestCase):
         self.assertEqual({'id': 1}, doc.to_dict())
         self.assertEqual('first', doc.id)
 
+    def test_document_path_property(self):
+        fs = MockFirestore()
+        fs._data = {'foo': {
+            'first': {'id': 1}
+        }}
+        doc = fs.document('foo/first')
+        self.assertEqual('foo/first', doc.path)
+
     def test_set_document_by_path(self):
         fs = MockFirestore()
         fs._data = {}

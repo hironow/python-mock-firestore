@@ -6,11 +6,13 @@ To install:
 
 `pip install mock-firestore`
 
-Python 3.6+ is required for it to work.
+Python 3.9+ is required for it to work.
 
 ## Usage
 
 ```python
+from mockfirestore import MockFirestore
+
 db = firestore.Client()
 mock_db = MockFirestore()
 
@@ -54,7 +56,7 @@ mock_db.collection('users').document('alovelace').set({
 })
 mock_db.collection('users').document('alovelace').set({'first': 'Augusta Ada'}, merge=True)
 mock_db.collection('users').document('alovelace').update({'born': 1815})
-mock_db.collection('users').document('alovelace').update({'favourite.color': 'red'})
+mock_db.collection('users').document('alovelace').update({'favorite.color': 'red'})
 mock_db.collection('users').document('alovelace').update({'associates': ['Charles Babbage', 'Michael Faraday']})
 mock_db.collection('users').document('alovelace').collection('friends')
 mock_db.collection('users').document('alovelace').delete()
